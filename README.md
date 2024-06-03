@@ -26,12 +26,34 @@ $ python decoder.py -d -i soundfont
 
 ### How To Build SoundfontDecoder.exe
 
-    Pull the latest version of PyInstaller from https://github.com/pyinstaller/pyinstaller (at the time of this writing, PyInstaller in PIP doesn't support Python 3.6).
-    Run the setup.py script from the PyInstaller repo.
-    After PyInstaller is installed on the system, the pyinstaller.exe will be within the \Scripts folder of the system's Python directory. Navigate to this directory, and run the following command: pyinstaller --onefile --noconsole --name SoundfontDecoder <path-to-wavetable-code>\controller.py
-    This will produce an executable file named controller.exe which contains the Soundfont Decoder.
+Pull the latest version of PyInstaller from https://github.com/pyinstaller/pyinstaller (at the time of this writing, PyInstaller in PIP doesn't support Python 3.6).
+Run the setup.py script from the PyInstaller repo.
+After PyInstaller is installed on the system, the pyinstaller.exe will be within the \Scripts folder of the system's Python directory. Navigate to this directory, and run the following command: pyinstaller --onefile --noconsole --name SoundfontDecoder <path-to-wavetable-code>\controller.py
+This will produce an executable file named controller.exe which contains the Soundfont Decoder.
 
 Additional Instructions for building on Ubuntu:
 
-    for step 2, make sure to use python3 when installing: i.e. python3 setup.py install -- this is because tkinter has been renamed to Tkinter in python3
-    the executable file will be in the dist directory
+for step 2, make sure to use python3 when installing: i.e. python3 setup.py install -- this is because tkinter has been renamed to Tkinter in python3
+the executable file will be in the dist directory
+
+### How to make a soundfont
+
+I used polyphone
+
+add a sample
+
+use auto loop to find the loop point - this truncates the sample which is not what we want
+
+make a note of the numbers and then undo so it is not truncated
+
+Reenter the loop point to the whole sample
+
+Make an instrument
+
+set the loop to loop then release
+
+set a long release so you can hear the sample
+
+make a preset
+
+I think that is all. And it works well in polytone but when converted as above it doens't translate with the release phase so I am wondering about making my own release instrument that is triggered afterwards in the code? tbc...
